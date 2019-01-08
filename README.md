@@ -1,6 +1,6 @@
 # React Native Simple Quiz App
 
-**Simple Quiz App with *Face Detection* **
+**Simple Quiz App with _Face Detection_**
 
 ---
 ## What it does?

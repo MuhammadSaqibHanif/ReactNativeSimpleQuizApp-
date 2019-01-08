@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Text, View, TouchableOpacity, Button, Modal, TouchableHighlight, Alert, StyleSheet } from 'react-native';
+import { Text, View, Modal, Alert, StyleSheet } from 'react-native';
 import { Camera, Permissions, FaceDetector } from 'expo';
+import { Icon, Button } from 'react-native-elements';
 
 export default class CameraExample extends React.Component {
   state = {
@@ -55,24 +56,24 @@ export default class CameraExample extends React.Component {
             style={{ flex: 1 }}
             type={this.state.type}
           >
+            <View style={{
+              flex: 1,
+              // flexDirection: 'column',
+              justifyContent: 'flex-end',
+              alignItems: 'center',
+            }}>
+              <Icon
+                reverse
+                name='camera'
+                type='material-community'
+                color='#ffffff00'
+                size={48}
+                onPress={this.click}
+              />
+            </View>
           </Camera>
 
-		  <View style={{
-                width: 250,
-				marginLeft: 'auto', 
-				marginRight: 'auto', 
-				marginTop: 'auto', 
-				marginBottom: 'auto'
-              }} >
-                <Button
-                  onPress={this.click}
-                  title="Click"
-                  color="green"
-                  accessibilityLabel="Learn more about this purple button"
-                />
-              </View>
-		  
-          <View style={{ marginTop: 22 }}>
+          <View style={{ marginTop: 0 }}>
             <Modal
               animationType="slide"
               transparent={false}
@@ -87,20 +88,23 @@ export default class CameraExample extends React.Component {
                       <Button
                         onPress={this.props.startQuiz}
                         title="Start Quiz"
-                        color="green"
-                        accessibilityLabel="Learn more about this purple button"
+                        backgroundColor='#03A9F4'
+                        buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
                       />
-
                     </View>
                     : <Text style={styles.errorText}>No face found!</Text>
                   }
+                  <View style={styles.hideModal}>
+                    <Button
+                      onPress={() => {
+                        this.setModalVisible(!this.state.modalVisible);
+                      }}
+                      title="Hide Modal"
+                      backgroundColor='#03A9F4'
+                      buttonStyle={{ borderRadius: 0, marginLeft: 0, marginRight: 0, marginBottom: 0 }}
+                    />
+                  </View>
 
-                  <TouchableHighlight
-                    onPress={() => {
-                      this.setModalVisible(!this.state.modalVisible);
-                    }}>
-                    <Text style={styles.hideModal}>Hide Modal</Text>
-                  </TouchableHighlight>
                 </View>
               </View>
             </Modal>
@@ -114,32 +118,19 @@ export default class CameraExample extends React.Component {
 
 const styles = StyleSheet.create({
   startButton: {
-    // flex: 1,
-    alignSelf: 'center',
-    //alignItems: 'center',	  
-    //height: 100,
-    width: 250,
-    justifyContent: 'center',
+    marginTop: 50,
+    marginBottom: 50
   },
   errorText: {
-	marginLeft: 'auto', 
-	marginRight: 'auto', 
-	fontSize: 25,
-	width: 300,
-	textAlign: 'center',
-	fontWeight: 'bold'
-  },  
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    fontSize: 25,
+    width: 300,
+    textAlign: 'center',
+    fontWeight: 'bold'
+  },
   hideModal: {
-	marginLeft: 'auto', 
-	marginRight: 'auto', 
-	marginTop: 40,
-	paddingTop: 10,
-	fontSize: 20,
-	width: 250,
-	height: 50,
-	backgroundColor: 'green',
-	color: 'white',
-	textAlign: 'center',
-	fontWeight: 'bold'
-  },   
+    marginTop: 20,
+    // marginBottom: 'auto'
+  },
 });

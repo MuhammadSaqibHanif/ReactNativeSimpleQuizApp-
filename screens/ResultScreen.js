@@ -1,5 +1,6 @@
 import React from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { Button } from 'react-native-elements';
 
 export default class ResultScreen extends React.Component {
 	constructor(props) {
@@ -22,16 +23,14 @@ export default class ResultScreen extends React.Component {
 									<Button
 										onPress={playAgain}
 										title="Play Again"
-										color="green"
-										accessibilityLabel="Learn more about this purple button"
+										backgroundColor="#03A9F4"
 									/>
 								</View>
 								<View style={styles.buttons}>
 									<Button
 										onPress={goHome}
 										title="Quit"
-										color="green"
-										accessibilityLabel="Learn more about this purple button"
+										backgroundColor="#03A9F4"
 									/>
 								</View>							
 							</View>

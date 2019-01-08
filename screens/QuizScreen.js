@@ -1,7 +1,8 @@
 import React from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View } from 'react-native';
 import axios from 'axios';
 import RadioForm, { RadioButton, RadioButtonInput, RadioButtonLabel } from 'react-native-simple-radio-button';
+import { Button } from 'react-native-elements';
 
 import ResultScreen from './ResultScreen';
 
@@ -123,7 +124,7 @@ export default class QuizScreen extends React.Component {
 																<Text style={{marginLeft: 5, marginTop: 5}}>
 																	{`${minutes} min ${seconds} sec \n`}
 																</Text>
-																<Text style={{marginLeft: 5, fontWeight: 'bold', fontSize: 18}}>
+																<Text style={{marginLeft: 5, marginRight: 5, fontSize: 18}}>
 																	{`${next + 1}. ${data[next].question} \n \n`}
 																</Text>
 																
@@ -136,8 +137,8 @@ export default class QuizScreen extends React.Component {
 																		{ label: data[next].incorrect_answers[2], value: 3 },
 																	]}
 																	initial={0}
-																	buttonColor={'#50C900'}
-																	selectedButtonColor={'#50C900'}
+																	buttonColor={'#03A9F4'}
+																	selectedButtonColor={'#03A9F4'}
 																	buttonSize={20}
 																	onPress={(value) => { this.setState({ value: value }) }}
 																/>
@@ -147,8 +148,7 @@ export default class QuizScreen extends React.Component {
 															<Button
 																onPress={this.clickNext}
 																title="Next"
-																color="green"
-																accessibilityLabel="Learn more about this purple button"
+																backgroundColor="#03A9F4"							
 															/>
 															</View>
 														</View>
