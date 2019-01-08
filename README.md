@@ -1,4 +1,4 @@
-# React Native Simple Quiz App
+# Simple Quiz App Using React Native
 
 **Simple Quiz App with _Face Detection_**
 
